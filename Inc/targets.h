@@ -740,6 +740,29 @@
 #define USE_SERIAL_TELEMETRY
 #endif
 
+// Diagnostic variant of CATALYST_MK1_F421 with serial telemetry disabled, so
+// the ESC never drives the shared signal line as an output. Used to test
+// whether AM32 telemetry is interfering with the ELRS PWM input.
+#ifdef CATALYST_MK1_NOTLM_F421
+#define FIRMWARE_NAME "CATALYST NTM"
+#define FILE_NAME "CATALYST_MK1_NOTLM_F421"
+#define DEAD_TIME 80
+#define CURRENT_ADC_CHANNEL ADC_CHANNEL_3
+#define CURRENT_ADC_PIN GPIO_PINS_3
+#define MILLIVOLT_PER_AMP 44
+#define CURRENT_OFFSET 1650 // mv
+#define HARDWARE_GROUP_AT_B
+#define HARDWARE_GROUP_AT_045
+#endif
+
+#ifdef CATALYST_AIO_DT20_F421
+#define FIRMWARE_NAME "CAT AIO DT20"
+#define FILE_NAME "CATALYST_AIO_DT20_F421"
+#define DEAD_TIME 20
+#define HARDWARE_GROUP_AT_B
+#define HARDWARE_GROUP_AT_054
+#endif
+
 /****************************************Generic********************************************/
 
 #ifdef AT32PB4_054_F421
